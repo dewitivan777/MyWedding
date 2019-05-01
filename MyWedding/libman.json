@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "twitter-bootstrap@4.3.1",
+      "destination": "wwwroot/lib/twitter-bootstrap/"
+    },
+    {
+      "library": "jquery@3.4.0",
+      "destination": "wwwroot/lib/jquery"
+    },
+    {
+      "library": "popper.js@1.15.0",
+      "destination": "wwwroot/lib/popper"
+    },
+    {
+      "library": "wow@1.1.2",
+      "destination": "wwwroot/lib/wow"
+    },
+    {
+      "library": "animate.css@3.7.0",
+      "destination": "wwwroot/lib/animate"
+    },
+    {
+      "library": "jquery.countdown@2.2.0",
+      "destination": "wwwroot/lib/jquery"
+    },
+    {
+      "library": "jquery-easing@1.4.1",
+      "destination": "wwwroot/lib/jquery/"
+    }
+
+]
+}

@@ -1,0 +1,38 @@
+﻿.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ul#example {
+    list-style: none;
+    margin: 50px 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+}
+
+    ul#example li {
+        display: inline-block;
+    }
+
+        ul#example li span {
+            font-size: 40px;
+            font-weight: 300;
+            line-height: 40px;
+            color: bisque;
+        }
+
+        ul#example li.seperator {
+            font-size: 40px;
+            line-height: 35px;
+            vertical-align: top;
+        }
+
+        ul#example li p {
+            color: whitesmoke;
+            font-size: 12px;
+        }
