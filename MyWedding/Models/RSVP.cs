@@ -28,8 +28,6 @@ namespace MyWedding.Models
         public string Email { get; set; }
 
         [MaxLength(200)]
-        [Display(Name = "Type your message", Prompt = "(Required)")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Type a message")]
         [DataType(DataType.MultilineText)]
         public string Message { get; set; }
 
