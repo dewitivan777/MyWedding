@@ -6,8 +6,11 @@ using Email.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MyWedding.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyWedding
 {
@@ -19,6 +22,17 @@ namespace MyWedding
         {
             services.AddMvc();
             services.AddTransient<IEmailService, EmailService>();
+
+            services.AddDbContext<IdentityDbContext>(options =>
+     options.UseSqlite("Data Source=users.sqlite",
+         optionsBuilder => optionsBuilder.MigrationsAssembly("MyWedding")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<IdentityDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddDbContext<AppDbContext>(options =>
+              options.UseSqlite("Data Source=guests.sqlite",
+               optionsBuilder => optionsBuilder.MigrationsAssembly("MyWedding")));
 
         }
 
