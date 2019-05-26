@@ -21,19 +21,25 @@ namespace MyWedding.Migrations
                     b.Property<string>("id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("date");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("email");
+                    b.Property<bool>("IsAttending");
 
-                    b.Property<bool>("isattending");
+                    b.Property<string>("Message")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<string>("Surname")
+                        .IsRequired();
+
+                    b.Property<DateTime>("dateAdded");
+
+                    b.Property<DateTime>("dateUpdated");
 
                     b.Property<string>("mobile");
-
-                    b.Property<string>("name")
-                        .IsRequired();
-
-                    b.Property<string>("surname")
-                        .IsRequired();
 
                     b.HasKey("id");
 

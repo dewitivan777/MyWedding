@@ -20,19 +20,19 @@
                     <div asp-validation-summary="ModelOnly" id="notifications" class="text-danger"></div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label asp-for="name" class="control-label"></label>
-                            <input id="name" asp-for="name" class="form-control" />
-                            <span asp-validation-for="name" class="text-danger"></span>
+                            <label asp-for="Name" class="control-label"></label>
+                            <input id="name" asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="surname" class="control-label"></label>
-                            <input id="surname" asp-for="surname" class="form-control" />
-                            <span asp-validation-for="surname" class="text-danger"></span>
+                            <label asp-for="Surname" class="control-label"></label>
+                            <input id="surname" asp-for="Surname" class="form-control" />
+                            <span asp-validation-for="Surname" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="email" class="control-label"></label>
-                            <input id="email" asp-for="email" class="form-control" />
-                            <span asp-validation-for="email" class="text-danger"></span>
+                            <label asp-for="Email" class="control-label"></label>
+                            <input id="email" asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="mobile" class="control-label"></label>
@@ -41,15 +41,15 @@
                         </div>
                         <div class="form-group">
                             <div>
-                                <label asp-for="isattending" class="control-label">Is attending?</label>
-                                <input id="isattending" asp-for="isattending"
+                                <label asp-for="IsAttending" class="control-label">Is attending?</label>
+                                <input id="isattending" asp-for="IsAttending"
                                        data-val="true"
                                        data-val-required="The isattending field is required."
                                        name="isattending"
                                        type="checkbox"
                                        value="true" />
 
-                                <input name="isattending" asp-for="isattending" type="hidden" value="false" id="isattending" />
+                                <input name="isattending" asp-for="IsAttending" type="hidden" value="false" id="isattending" />
 
                             </div>
                         </div>

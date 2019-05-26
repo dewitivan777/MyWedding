@@ -56,12 +56,12 @@ namespace MyWedding.Controllers
                 //Sorting
                 if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDirection)))
                 {
-                    customerData = customerData.AsQueryable().OrderBy(x => x.surname);
+                    customerData = customerData.AsQueryable().OrderBy(x => x.Surname);
                 }
                 //Search
                 if (!string.IsNullOrEmpty(searchValue))
                 {
-                    customerData = customerData.Where(m => m.name.ToLower().Contains(searchValue) || m.surname.ToLower().Contains(searchValue) || m.email.ToLower().Contains(searchValue));
+                    customerData = customerData.Where(m => m.Name.ToLower().Contains(searchValue) || m.Surname.ToLower().Contains(searchValue) || m.Email.ToLower().Contains(searchValue));
                 }
 
                 //total number of rows count 
@@ -102,11 +102,11 @@ namespace MyWedding.Controllers
             var model = new Guest()
             {
                 id = entity.Result.id,
-                name = entity.Result.name,
-                surname = entity.Result.surname,
-                email = entity.Result.email,
+                Name= entity.Result.Name,
+                Surname = entity.Result.Surname,
+                Email = entity.Result.Email,
                 mobile = entity.Result.mobile,
-                isattending = entity.Result.isattending,
+                IsAttending= entity.Result.IsAttending
             };
 
 
@@ -170,8 +170,8 @@ namespace MyWedding.Controllers
             var model = new Details()
             {
                 Total = entities.Count(),
-                Attending = entities.Where(c => c.isattending == true).Count(),
-                NotAttending = entities.Where(c => c.isattending == false).Count()
+                Attending = entities.Where(c => c.IsAttending == true).Count(),
+                NotAttending = entities.Where(c => c.IsAttending == false).Count()
             };
 
 

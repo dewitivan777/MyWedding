@@ -10,6 +10,7 @@ namespace MyWedding.Repository
     public interface IGuestRepository<T>
     {
         Task<T> GetByIdAsync(string id);
+        Task<T> GetByNameAsync(string name, string surname);
         Task<List<string>> GetEmail();
         Task<List<string>> GetEmail(Expression<Func<T, bool>> predicate);
         Task<IEnumerable<T>> ListAsync();

@@ -12,12 +12,14 @@ namespace MyWedding.Migrations
                 columns: table => new
                 {
                     id = table.Column<string>(nullable: false),
-                    name = table.Column<string>(nullable: false),
-                    surname = table.Column<string>(nullable: false),
-                    email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    Surname = table.Column<string>(nullable: false),
                     mobile = table.Column<string>(nullable: true),
-                    isattending = table.Column<bool>(nullable: false),
-                    date = table.Column<DateTime>(nullable: false)
+                    Email = table.Column<string>(nullable: false),
+                    Message = table.Column<string>(maxLength: 200, nullable: true),
+                    IsAttending = table.Column<bool>(nullable: false),
+                    dateAdded = table.Column<DateTime>(nullable: false),
+                    dateUpdated = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

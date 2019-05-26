@@ -16,7 +16,10 @@ namespace MyWedding.Models
         [Required, DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [Display(Name = "Remember Me")]
         public bool rememberme { get; set; } = false;
 
+
+        public string ReturnUrl { get; set; }
     }
 }

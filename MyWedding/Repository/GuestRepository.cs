@@ -24,6 +24,7 @@ namespace MyWedding.Repository
 
         public void Add(T entity)
         {
+            entity.dateAdded = DateTime.Now;
             _dbset.Add(entity);
             _DBcontext.SaveChanges();
         }
@@ -41,16 +42,22 @@ namespace MyWedding.Repository
             return await result;
         }
 
+        public async Task<T> GetByNameAsync(string name, string surname)
+        {
+            var result = _dbset.Where(x => x.Name.ToLower() == name.ToLower() && x.Surname.ToLower() == surname.ToLower()).FirstOrDefaultAsync();
+            return await result;
+        }
+
         public async Task<List<string>> GetEmail()
         {
-            var result = _dbset.Select(s => s.email).ToListAsync();
+            var result = _dbset.Select(s => s.Email).ToListAsync();
             return await result;
         }
 
         public async Task<List<string>> GetEmail(Expression<Func<T, bool>> predicate)
         {
 
-            var result = _dbset.Where(predicate).Select(s => s.email).ToListAsync();
+            var result = _dbset.Where(predicate).Select(s => s.Email).ToListAsync();
             return await result;
         }
 
@@ -63,10 +70,9 @@ namespace MyWedding.Repository
         }
 
        
-
-
         public void Update(T entity)
         {
+            entity.dateUpdated = DateTime.Now;
             _dbset.Update(entity);
             _DBcontext.SaveChanges();
         }

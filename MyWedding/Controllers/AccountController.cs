@@ -10,21 +10,20 @@ using MyWedding.Models;
 
 namespace MyWedding.Controllers
 {
-    public class AdminController : Controller
+    public class AccountController : Controller
     {
 
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly IEmailService _messageService;
 
-        public AdminController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IEmailService messageService)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IEmailService messageService)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
             this._messageService = messageService;
         }
 
-        [Route("~/Register")]
         public IActionResult Register()
         {
             return View();
@@ -32,7 +31,6 @@ namespace MyWedding.Controllers
 
 
         [HttpPost]
-        [Route("~/Register")]
         public async Task<IActionResult> Register(RegisterUser model)
         {
             if (ModelState.IsValid)
@@ -82,14 +80,15 @@ namespace MyWedding.Controllers
             return Content("Email confirmed, you can now log in");
         }
 
-        [Route("~/Login")]
-        public IActionResult Login()
+  
+        [HttpGet]
+        public IActionResult Login(string returnUrl = "")
         {
-            return View();
+            var model = new LoginUser { ReturnUrl = returnUrl };
+            return View(model);
         }
 
         [HttpPost]
-        [Route("~/Login")]
         public async Task<IActionResult> Login(LoginUser model)
         {
             var user = await _userManager.FindByEmailAsync(model.Username);
@@ -111,7 +110,7 @@ namespace MyWedding.Controllers
                 return View();
             }
 
-            return RedirectToAction("list", "Guest");
+            return RedirectToAction(model.ReturnUrl);
         }
 
         public IActionResult ForgotPassword()

@@ -26,19 +26,19 @@
                         <div asp-validation-summary="ModelOnly" id="notifications" class="text-danger"></div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label asp-for="name" class="control-label"></label>
-                                <input id="name" asp-for="name" class="form-control" />
-                                <span asp-validation-for="name" class="text-danger"></span>
+                                <label asp-for="Name" class="control-label"></label>
+                                <input id="name" asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="surname" class="control-label"></label>
-                                <input id="surname" asp-for="surname" class="form-control" />
-                                <span asp-validation-for="surname" class="text-danger"></span>
+                                <label asp-for="Surname" class="control-label"></label>
+                                <input id="surname" asp-for="Surname" class="form-control" />
+                                <span asp-validation-for="Surname" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="email" class="control-label"></label>
-                                <input id="email" asp-for="email" class="form-control" />
-                                <span asp-validation-for="email" class="text-danger"></span>
+                                <label asp-for="Email" class="control-label"></label>
+                                <input id="email" asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="mobile" class="control-label"></label>
@@ -48,7 +48,7 @@
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label>
-                                        <input id="isattending" asp-for="isattending" /> @Html.DisplayNameFor(model => model.isattending)
+                                        <input id="isattending" asp-for="IsAttending" /> @Html.DisplayNameFor(model => model.IsAttending)
                                     </label>
                                 </div>
                             </div>
@@ -91,8 +91,17 @@
                 contentType: false,
                 type: "POST",
                 success: function (result) {
-                    var newBody = $("#partialform", result);
-                    $("#partialform").replaceWith(newBody);
+                    if (result.success) {
+                        $('#notifications').show();
+                        $('#notifications').html('<div  class="alert alert-success" role="alert"> Guest added.</div>');
+                        $('#partialform').hide('slow');
+
+                    }
+                    else {
+                        var newBody = $("#partialform", result);
+                        $("#partialform").replaceWith(newBody);
+
+                    }
                 },
                 error: function (result) {
                     $('#notifications').html(' Looks like something went wrong! Please try again later.');
