@@ -1,8 +1,9 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
-using MyWedding.Services;
 
 namespace Email.Services
 {
@@ -13,7 +14,7 @@ namespace Email.Services
         {
             _configuration = configuration;
         }
-        public async Task SendEmail(string email, string subject, string message)
+        public async Task SendEmail(List<string> email, string subject, string message)
         {
             using (var client = new SmtpClient())
             {
@@ -30,7 +31,10 @@ namespace Email.Services
 
                 using (var emailMessage = new MailMessage())
                 {
-                    emailMessage.To.Add(new MailAddress(email));
+                    foreach (var address in email)
+                    {
+                        emailMessage.To.Add(new MailAddress(address));
+                    }
                     emailMessage.From = new MailAddress(_configuration["Email:Email"]);
                     emailMessage.Subject = subject;
                     emailMessage.Body = message;
@@ -40,9 +44,16 @@ namespace Email.Services
             await Task.CompletedTask;
         }
 
-        public Task SendEmail(string email, string message)
+
+        public async Task SendLogin(string email, string subject, string message)
         {
-            throw new System.NotImplementedException();
+            var emailMessage = $"To: {email}\nSubject: {subject}\nMessage: {message}\n\n";
+
+            File.AppendAllText("emails.txt", emailMessage);
+
+            await Task.CompletedTask;
         }
+
+
     }
 }

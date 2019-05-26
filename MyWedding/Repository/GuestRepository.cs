@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using MyWedding.Models;
-using MyWedding.Repository;
 
+using System.Linq.Expressions;
+using MyWedding.Models;
+using MyWedding.Models;
+using MyWedding;
 
 namespace MyWedding.Repository
 {
@@ -40,22 +41,36 @@ namespace MyWedding.Repository
             return await result;
         }
 
-        public async Task<List<T>> ListAsync()
+        public async Task<List<string>> GetEmail()
         {
-            var result = _dbset.ToListAsync();
+            var result = _dbset.Select(s => s.email).ToListAsync();
             return await result;
         }
 
-        public async Task<List<T>> ListAsync(Expression<Func<T, bool>> predicate)
+        public async Task<List<string>> GetEmail(Expression<Func<T, bool>> predicate)
         {
-            var result = _dbset.Where(predicate).ToListAsync();
+
+            var result = _dbset.Where(predicate).Select(s => s.email).ToListAsync();
             return await result;
         }
+
+
+        public async Task<IEnumerable<T>> ListAsync()
+        {
+            var results = _dbset.ToListAsync();
+
+            return await results;
+        }
+
+       
+
 
         public void Update(T entity)
         {
             _dbset.Update(entity);
             _DBcontext.SaveChanges();
         }
+
+
     }
 }

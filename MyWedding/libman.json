@@ -30,6 +30,18 @@
     {
       "library": "jquery-easing@1.4.1",
       "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "datatables@1.10.19",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "bootstrap-table@1.14.2",
+      "destination": "wwwroot/lib/twitter-bootstrap/"
+    },
+    {
+      "library": "Chart.js@2.8.0",
+      "destination": "wwwroot/lib/Chart"
     }
 
 ]

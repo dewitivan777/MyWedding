@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-
-namespace MyWedding.Services
+namespace Email.Services
 {
     public interface IEmailService
     {
-        Task SendEmail(string email, string subject, string message);
+        Task SendLogin(string email, string subject, string message);
+        Task SendEmail(List<string> email, string subject, string message);
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Email.Services;
 using Microsoft.AspNetCore.Mvc;
 using MyWedding.Models;
-using MyWedding.Services;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -35,10 +36,14 @@ namespace MyWedding.Controllers
 
             if(ModelState.IsValid)
             {
-                string email = "dewit.ivan777@gmail.com";
+                List<string> email = new List<string>();
+                email.Add("dewit.ivan777@gmail.com");
+            
                 string subject = "Mone & Ivan's wedding";
 
                 string message = "Test";
+                
+
 
                 await _emailService.SendEmail(email, subject, message);
 

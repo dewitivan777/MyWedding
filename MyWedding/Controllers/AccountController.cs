@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Email.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MyWedding.Services;
 using MyWedding.Models;
+
 
 namespace MyWedding.Controllers
 {
-    public class AccountController : Controller
+    public class AdminController : Controller
     {
+
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly IEmailService _messageService;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IEmailService messageService)
+        public AdminController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IEmailService messageService)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
@@ -53,7 +55,12 @@ namespace MyWedding.Controllers
                 var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
                 var tokenVerificationUrl = Url.Action("VerifyEmail", "Admin", new { id = newUser.Id, token = emailConfirmationToken }, Request.Scheme);
 
-                await _messageService.SendEmail(model.Username, "Verify your email", $"Click <a href=\"{tokenVerificationUrl}\">here</a> to verify your email");
+
+                List<string> emails = new List<string>();
+                emails.Add(model.Username);
+
+
+                await _messageService.SendEmail(emails, "Verify your email", $"Click <a href=\"{tokenVerificationUrl}\">here</a> to verify your email");
 
                 return Content("Check your email for a verification link");
             }
@@ -104,7 +111,7 @@ namespace MyWedding.Controllers
                 return View();
             }
 
-            return Redirect("~/Guest");
+            return RedirectToAction("list", "Guest");
         }
 
         public IActionResult ForgotPassword()
@@ -122,7 +129,10 @@ namespace MyWedding.Controllers
             var passwordResetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
             var passwordResetUrl = Url.Action("ResetPassword", "Admin", new { id = user.Id, token = passwordResetToken }, Request.Scheme);
 
-            await _messageService.SendEmail(email, "Password reset", $"Click <a href=\"" + passwordResetUrl + "\">here</a> to reset your password");
+            List<string> emails = new List<string>();
+            emails.Add(email);
+
+            await _messageService.SendEmail(emails, "Password reset", $"Click <a href=\"" + passwordResetUrl + "\">here</a> to reset your password");
 
             return Content("Check your email for a password reset link");
         }

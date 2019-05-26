@@ -31,8 +31,6 @@ namespace MyWedding.Models
         [DataType(DataType.MultilineText)]
         public string Message { get; set; }
 
-
         public bool IsAttending { get; set; }
-
     }
 }

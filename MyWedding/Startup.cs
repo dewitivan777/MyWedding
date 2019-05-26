@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MyWedding.Services;
+using Email.Services;
 using Microsoft.EntityFrameworkCore;
+using TestProject;
+using MyWedding.Repository;
 
 namespace MyWedding
 {
@@ -23,16 +25,31 @@ namespace MyWedding
             services.AddMvc();
             services.AddTransient<IEmailService, EmailService>();
 
-            services.AddDbContext<IdentityDbContext>(options =>
+            services.AddDbContext<Identitydbcontext>(options =>
      options.UseSqlite("Data Source=users.sqlite",
          optionsBuilder => optionsBuilder.MigrationsAssembly("MyWedding")));
             services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<IdentityDbContext>()
+                .AddEntityFrameworkStores<Identitydbcontext>()
                 .AddDefaultTokenProviders();
 
             services.AddDbContext<AppDbContext>(options =>
               options.UseSqlite("Data Source=guests.sqlite",
                optionsBuilder => optionsBuilder.MigrationsAssembly("MyWedding")));
+
+            services.AddScoped(typeof(IGuestRepository<>), typeof(GuestRepository<>));
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 0;
+
+                options.SignIn.RequireConfirmedEmail = true;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+            });
 
         }
 

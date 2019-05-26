@@ -1,0 +1,103 @@
+﻿@model MyWedding.Models.Guest
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#GuestAdd">
+    Add contact
+</button>
+
+<div class="modal fade jobmail-apply" id="GuestAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="job-details">
+                    <div><img src="https://www.junkmail.co.za/images/jm-logo-red.png" alt="" class="img-responsive"></div>
+                    <div>
+                        <p class="modal-title h2">Position Name</p>
+                        <p>A self-driven and adaptive individual with good communication skills. Possesses leadership skills along with the ability to deal with problems/issues. Possesses written and verbal skills and able to w</p>
+                    </div>
+                </div>
+            </div>
+            <h4>Guest</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form id="partialform" data-ajax="true" data-ajax-method="post" data-ajax-update="#partialform" data-ajax-mode="replace">
+                        <div asp-validation-summary="ModelOnly" id="notifications" class="text-danger"></div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label asp-for="name" class="control-label"></label>
+                                <input id="name" asp-for="name" class="form-control" />
+                                <span asp-validation-for="name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="surname" class="control-label"></label>
+                                <input id="surname" asp-for="surname" class="form-control" />
+                                <span asp-validation-for="surname" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="email" class="control-label"></label>
+                                <input id="email" asp-for="email" class="form-control" />
+                                <span asp-validation-for="email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="mobile" class="control-label"></label>
+                                <input id="mobile" asp-for="mobile" class="form-control" />
+                                <span asp-validation-for="mobile" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="isattending" asp-for="isattending" /> @Html.DisplayNameFor(model => model.isattending)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-group">
+                                <input type="button" value="Create" class="btn btn-outline-primary" onclick="upload()" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <a asp-action="ShowGrid">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function upload() {
+        var name = document.getElementById('name').value;
+        var surname = document.getElementById('surname').value;
+        var email = document.getElementById('email').value;
+        var mobile = document.getElementById('mobile').value;
+        var isattending = document.getElementById('isattending').value;
+        var data = new FormData();
+        data.append('name', name);
+        data.append('surname', surname);
+        data.append('email', email);
+        data.append('mobile', mobile);
+        data.append('isattending', isattending);
+        $.ajax(
+            {
+                url: '/Guest/add',
+                data: data,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (result) {
+                    var newBody = $("#partialform", result);
+                    $("#partialform").replaceWith(newBody);
+                },
+                error: function (result) {
+                    $('#notifications').html(' Looks like something went wrong! Please try again later.');
+                }
+            }
+        );
+    }
+</script>

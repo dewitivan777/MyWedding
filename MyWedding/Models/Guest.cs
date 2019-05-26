@@ -20,5 +20,7 @@ namespace MyWedding.Models
         [Phone(ErrorMessage = "Invalid format")]
         public string mobile { get; set; }
         public bool isattending { get; set; }
+
+        public DateTime date { get; set; }
     }
 }
