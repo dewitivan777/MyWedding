@@ -6,7 +6,7 @@
 
 
     <title>Mone and Ivan Wedding</title>
-    
+
 
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script async="" src="//www.google-analytics.com/analytics.js"></script>
@@ -18,11 +18,14 @@
     <link href="~/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/twitter-bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
     <link href="~/lib/twitter-bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" />
+    <link href="~/lib/font/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/awesome-bootstrap-checkbox.min.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap-toggle.min.css" rel="stylesheet" />
     <link href="~/lib/animate/animate.min.css" rel="stylesheet" />
     <link href="~/lib/Site.css" rel="stylesheet" />
 
 </head>
-<body>
+<body id="Homepage">
     <header>
 
         <nav class="fixed-top navbar navbar-expand-lg bg-white">
@@ -32,56 +35,86 @@
                 </a>
                 <button class="navbar-toggler navbar-toggler-icon bg-dark " type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"></button>
                 <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav ml-auto">
+
+                    @if (ViewBag.language == "English")
+                    {
+                        <ul class="navbar-nav ml-auto" id="Nav">
 
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#story" style="color:burlywood;">
-                                Our Story
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#wedding" style="color:burlywood;">
-                                Wedding
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#accomm" style="color:burlywood;">
-                                Accomm
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#registry" style="color:burlywood;">
-                                Registry
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#wedding" style="color:burlywood;">
+                                    Wedding
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#accomm" style="color:burlywood;">
+                                    Accommodation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#registry" style="color:burlywood;">
+                                    Registry
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#rsvp" style="color:burlywood;">
-                                RSVP
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#rsvp" style="color:burlywood;">
+                                    RSVP
+                                </a>
+                            </li>
 
 
-                    </ul>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav ml-auto" id="Nav">
 
-                    <select id="language" onchange="onlanguagechange()" class="pull-right">
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#wedding" style="color:burlywood;">
+                                    Troue
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#accomm" style="color:burlywood;">
+                                    Akkommodasie
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#registry" style="color:burlywood;">
+                                    Register
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#rsvp" style="color:burlywood;">
+                                    RSVP
+                                </a>
+                            </li>
+
+
+                        </ul>
+
+                    }
+
+                    <select id="language" onchange="onlanguagechange()" class="dropdown pull-right">
                         <option selected value="Afrikaans">Afrikaans</option>
                         <option value="English">English</option>
                     </select>
+
                 </div>
                 <div>
 
                 </div>
-        
+
             </div>
         </nav>
     </header>
 
-    <div class="container-fluid" style="padding-top:50px" >
+    <div class="container-fluid" style="padding-top:50px">
         @RenderBody()
     </div>
-
     <footer class="container">
         <p class="float-right"><a href="#">Back to top</a></p>
         <p>&copy; 2017-2019 Company, Inc. &middot;</p>
@@ -92,30 +125,32 @@
     <script src="~/lib/jquery/jquery.countdown.min.js"></script>
     <script src="~/lib/jquery/jquery.easing.js"></script>
     <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap-toggle.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap-checkbox.js"></script>
     <script src="~/lib/Site.js"></script>
-    
+
     <script>
         function onlanguagechange() {
-            var language =document.getElementById('language').value;
+            var language = document.getElementById('language').value;
 
-            data
-        $.ajax(
-            {
-                url: '/Home/index',
-                data: data,
-                processData: false,
-                contentType: false,
-                type: "POST",
-                success: function (result) {
-            
-                        var newBody = $("#partialform", result);
-                        $("#partialform").replaceWith(newBody);
-
-                    
+            var data = new FormData();
+            data.append('language', language);
+            $.ajax(
+                {
+                    url: '/Home/index',
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    type: "POST",
+                    success: function (result) {
+                        var newBody = $("#main", result);
+                        var Laybody = $("#Nav", result);
+                        $("#main").replaceWith(newBody);
+                        $("#Nav").replaceWith(Laybody);
+                    }
                 }
-            }
-        );
-    }
+            );
+        }
     </script>
 
 

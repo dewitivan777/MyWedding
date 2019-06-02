@@ -34,6 +34,7 @@ namespace MyWedding.Controllers
         }
 
 
+        [HttpPost]
         public IActionResult Index(string language)
         {
             ViewBag.language = language;
@@ -56,7 +57,6 @@ namespace MyWedding.Controllers
                 }
                 else
                 {
-           
                     _guestRepository.Add(model);
                 }
                 List<string> email = new List<string>();
@@ -65,7 +65,7 @@ namespace MyWedding.Controllers
                 string message = "Test";
                 await _emailService.SendEmail(email, subject, message);
 
-                return Json(new { success = true }); ;
+                return Json(new { success = true }); 
             }
             else
             return View("~/Views/Home/Index.cshtml",model);

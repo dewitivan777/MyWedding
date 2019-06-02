@@ -44,7 +44,7 @@ namespace MyWedding.Repository
 
         public async Task<T> GetByNameAsync(string name, string surname)
         {
-            var result = _dbset.Where(x => x.Name.ToLower() == name.ToLower() && x.Surname.ToLower() == surname.ToLower()).FirstOrDefaultAsync();
+            var result = _dbset.Where(x => x.Name.ToLower().Contains(name.ToLower())  && x.Surname.ToLower().Contains(surname.ToLower())).FirstOrDefaultAsync();
             return await result;
         }
 
