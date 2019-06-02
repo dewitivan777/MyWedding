@@ -328,12 +328,12 @@
                                     <div>
                                         <label asp-for="IsAttending" class="control-label">Are you attending the wedding?</label>
                                         <div class="checkbox">
-                                            <input id="EngRSVPisattending" type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-offstyle="warning">
+                                            <input id="RSVPisattending" type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-offstyle="warning">
                                             <input type="hidden" id="RSVPisattending">
                                             <script>
                                                 $(function () {
-                                                    $('#EngRSVPisattending').bootstrapToggle();
-                                                    $('#RSVPisattending').val($(this).prop('checked'))
+                                                    $('#RSVPisattending').bootstrapToggle();
+                                           
                                                 })
                                             </script>
 
@@ -346,7 +346,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <div>
-                                            <input type="button" onclick="RSVP()" class="btn btn-light" value="RSVP" />
+                                            <input type="button" onclick="RSVP()" class="btn btn-light btn-block" value="RSVP" />
                                         </div>
                                     </div>
                                 </div>
@@ -718,11 +718,11 @@
                                     <label asp-for="IsAttending" class="control-label">Are you attending the wedding?</label>
                                     <div class="checkbox">
 
-                                        <input id="AFRRSVPisattending" type="checkbox" checked data-toggle="toggle" data-on="Ja" data-off="Nee" data-offstyle="warning">
-                                        <input type="hidden" id="RSVPisattending">
+                                        <input id="RSVPisattending" type="checkbox" checked data-toggle="toggle" data-on="Ja" data-off="Nee" data-offstyle="warning">
+                               
                                         <script>
                                             $(function () {
-                                                $('#AFRRSVPisattending').bootstrapToggle({
+                                                $('#RSVPisattending').bootstrapToggle({
                                                     
                                                 });
 
@@ -738,7 +738,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <div>
-                                            <input type="button" onclick="RSVP()" class="btn btn-light" value="RSVP" />
+                                            <input type="button" onclick="RSVP()" class="btn btn-light btn-block" value="RSVP" />
                                         </div>
                                     </div>
                                 </div>
@@ -824,7 +824,8 @@
         var surname = document.getElementById('RSVPsurname').value;
         var email = document.getElementById('RSVPemail').value;
         var mobile = document.getElementById('RSVPmobile').value;
-        var isattending = document.getElementById('RSVPisattending').value;
+        var isattending = document.getElementById('RSVPisattending').checked;
+          
         var data = new FormData();
         data.append('name', name);
         data.append('surname', surname);
