@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.Extensions.Configuration;
 
 namespace Email.Services
@@ -14,7 +15,7 @@ namespace Email.Services
         {
             _configuration = configuration;
         }
-        public async Task SendEmail(List<string> email, string subject, string message)
+        public async Task SendEmail(List<string> email, string subject, string message, string attachment = null)
         {
             using (var client = new SmtpClient())
             {
@@ -38,6 +39,10 @@ namespace Email.Services
                     emailMessage.From = new MailAddress(_configuration["Email:Email"]);
                     emailMessage.Subject = subject;
                     emailMessage.Body = message;
+                    if (attachment != null)
+                    {
+                        emailMessage.Attachments.Add( new Attachment(attachment));
+                    }
                     client.Send(emailMessage);
                 }
             }

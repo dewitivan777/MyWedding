@@ -43,10 +43,11 @@ namespace MyWedding.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> RSVP(Guest model)
+        [Route("~/Home/RSVP/{language}")]
+        public async Task<IActionResult> RSVP(Guest model, string language)
         {
-
-            if(ModelState.IsValid)
+            ViewBag.language = language;
+            if (ModelState.IsValid)
             {
                 var entity = await _guestRepository.GetByNameAsync(model.Name,model.Surname);
 
@@ -60,10 +61,31 @@ namespace MyWedding.Controllers
                     _guestRepository.Add(model);
                 }
                 List<string> email = new List<string>();
+                string attending = "";
+                if (model.IsAttending == true)
+                    attending = "attening";
+                else
+                    attending = "not attening";
+
+               //To Me
                 email.Add("dewit.ivan777@gmail.com");
                 string subject = "Mone & Ivan's wedding";
-                string message = "Test";
+                string stringformat = @"The following person is {0} your wedding:
+
+Name & Surname: {1}
+Email:{2}
+Contact number:{3}
+Personal message:{4}";
+                String message = string.Format(stringformat,attending,model.Name +" "+model.Surname,model.Email,model.mobile,model.Message);
                 await _emailService.SendEmail(email, subject, message);
+
+                //To Guest
+                email.Clear();
+                email.Add(model.Email);
+                 subject = "Mone & Ivan's wedding RSVP";
+                stringformat = @"You're {0} the wedding";
+                message = string.Format(stringformat, attending);
+                await _emailService.SendEmail(email, subject, message, "C:/Users/IvanDeWit/Desktop/Test/Test.docx");
 
                 return Json(new { success = true }); 
             }

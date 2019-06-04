@@ -290,37 +290,37 @@
                     </div>
 
 
-                    <div class="col-sm-10 text-center wow flipInX" style="background-color:bisque" id="RSVPpanel">
-                        <form  id="RSVPform" data-ajax="true" data-ajax-method="post" data-ajax-update="#RSVPform" data-ajax-mode="replace">
+                    <div class="col-sm-10 text-center wow flipInX" style="background-color:bisque" id="ENGRSVPpanel">
+                        <form  id="ENGRSVPform" data-ajax="true" data-ajax-method="post" data-ajax-update="#ENGRSVPform" data-ajax-mode="replace">
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label asp-for="Name" class="control-label">Name</label>
-                                    <input asp-for="Name" id="RSVPname" class="form-control" placeholder="Enter your name" />
+                                    <input asp-for="Name" id="ENGRSVPname" class="form-control" placeholder="Enter your name" />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label asp-for="Surname" class="control-label">Surname</label>
-                                    <input asp-for="Surname" id="RSVPsurname" class="form-control" placeholder="Enter your surname" />
+                                    <input asp-for="Surname" id="ENGRSVPsurname" class="form-control" placeholder="Enter your surname" />
                                     <span asp-validation-for="Surname" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label asp-for="Email" class="control-label">Email</label>
-                                    <input asp-for="Email" id="RSVPemail" class="form-control" placeholder="Enter your email address" />
+                                    <input asp-for="Email" id="ENGRSVPemail" class="form-control" placeholder="Enter your email address" />
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label asp-for="mobile" class="control-label">Cell</label>
-                                    <input asp-for="mobile" id="RSVPmobile" class="form-control" placeholder="Enter your cell" />
+                                    <input asp-for="mobile" id="ENGRSVPmobile" class="form-control" placeholder="Enter your cell" />
                                     <span asp-validation-for="mobile" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Message" class="control-label">Message</label>
-                                <textarea asp-for="Message" id="RSVPmessage" class="form-control" placeholder="Enter your message" rows="3"></textarea>
+                                <textarea asp-for="Message" id="ENGRSVPmessage" class="form-control" placeholder="Enter your message" rows="3"></textarea>
                                 <span asp-validation-for="Message" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -328,10 +328,10 @@
                                     <div>
                                         <label asp-for="IsAttending" class="control-label">Are you attending the wedding?</label>
                                         <div class="checkbox">
-                                            <input id="RSVPisattending" type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-offstyle="warning">
+                                            <input id="ENGRSVPisattending" type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-offstyle="warning">
                                             <script>
                                                 $(function () {
-                                                    $('#RSVPisattending').bootstrapToggle();
+                                                    $('#ENGRSVPisattending').bootstrapToggle();
                                            
                                                 })
                                             </script>
@@ -345,7 +345,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <div>
-                                            <input type="button" onclick="RSVP()" class="btn btn-light btn-block" value="RSVP" />
+                                            <input type="button" onclick="RSVP('ENG')" class="btn btn-light btn-block" value="RSVP" />
                                         </div>
                                     </div>
                                 </div>
@@ -354,7 +354,7 @@
 
 
                     </div>
-                    <div id="RSVPnotifications"></div>
+                    <div id="ENGRSVPnotifications"></div>
                 </div>
             </div>
         </section>
@@ -679,37 +679,37 @@
                     </div>
 
 
-                    <div class="col-sm-10 text-center wow flipInX" style="background-color:bisque" id="RSVPpanel">
-                        <form asp-controller="Home" asp-action="RSVP" id="RSVPform" data-ajax="true" data-ajax-method="post" data-ajax-update="#RSVPform" data-ajax-mode="replace">
+                    <div class="col-sm-10 text-center wow flipInX" style="background-color:bisque" id="AFRRSVPpanel">
+                        <form  id="AFRRSVPform" data-ajax="true" data-ajax-method="post" data-ajax-update="#AFRRSVPform" data-ajax-mode="replace">
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label asp-for="Name" class="control-label">Name</label>
-                                    <input asp-for="Name" id="RSVPname" class="form-control" placeholder="Enter your name" />
+                                    <input asp-for="Name" id="AFRRSVPname" class="form-control" placeholder="Enter your name" />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label asp-for="Surname" class="control-label">Surname</label>
-                                    <input asp-for="Surname" id="RSVPsurname" class="form-control" placeholder="Enter your surname" />
+                                    <input asp-for="Surname" id="AFRRSVPsurname" class="form-control" placeholder="Enter your surname" />
                                     <span asp-validation-for="Surname" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label asp-for="Email" class="control-label">Email</label>
-                                    <input asp-for="Email" id="RSVPemail" class="form-control" placeholder="Enter your email address" />
+                                    <input asp-for="Email" id="AFRRSVPemail" class="form-control" placeholder="Enter your email address" />
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label asp-for="mobile" class="control-label">Cell</label>
-                                    <input asp-for="mobile" id="RSVPmobile" class="form-control" placeholder="Enter your cell" />
+                                    <input asp-for="mobile" id="AFRRSVPmobile" class="form-control" placeholder="Enter your cell" />
                                     <span asp-validation-for="mobile" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Message" class="control-label">Message</label>
-                                <textarea asp-for="Message" id="RSVPmessage" class="form-control" placeholder="Enter your message" rows="3"></textarea>
+                                <textarea asp-for="Message" id="AFRRSVPmessage" class="form-control" placeholder="Enter your message" rows="3"></textarea>
                                 <span asp-validation-for="Message" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -717,11 +717,11 @@
                                     <label asp-for="IsAttending" class="control-label">Are you attending the wedding?</label>
                                     <div class="checkbox">
 
-                                        <input id="RSVPisattending" type="checkbox" checked data-toggle="toggle" data-on="Ja" data-off="Nee" data-offstyle="warning">
+                                        <input id="AFRRSVPisattending" type="checkbox" checked data-toggle="toggle" data-on="Ja" data-off="Nee" data-offstyle="warning">
                                
                                         <script>
                                             $(function () {
-                                                $('#RSVPisattending').bootstrapToggle({
+                                                $('#AFRRSVPisattending').bootstrapToggle({
                                                     
                                                 });
 
@@ -737,7 +737,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <div>
-                                            <input type="button" onclick="RSVP()" class="btn btn-light btn-block" value="RSVP" />
+                                            <input type="button" onclick="RSVP('AFR')" class="btn btn-light btn-block" value="RSVP" />
                                         </div>
                                     </div>
                                 </div>
@@ -746,7 +746,7 @@
 
 
                     </div>
-                    <div id="RSVPnotifications"></div>
+                    <div id="AFRRSVPnotifications"></div>
                 </div>
             </div>
         </section>
@@ -818,43 +818,47 @@
         }
     }, 1000);
 
-    function RSVP() {
-        var name = document.getElementById('RSVPname').value;
-        var surname = document.getElementById('RSVPsurname').value;
-        var email = document.getElementById('RSVPemail').value;
-        var mobile = document.getElementById('RSVPmobile').value;
-        var isattending = document.getElementById('RSVPisattending').checked;
-          
+    function RSVP(Lang) {
+        var name = document.getElementById( Lang + 'RSVPname').value;
+        var surname = document.getElementById(Lang + 'RSVPsurname').value;
+        var email = document.getElementById(Lang + 'RSVPemail').value;
+        var mobile = document.getElementById(Lang+ 'RSVPmobile').value;
+        var isattending = document.getElementById(Lang + 'RSVPisattending').checked;
+     
         var data = new FormData();
         data.append('name', name);
         data.append('surname', surname);
         data.append('email', email);
         data.append('mobile', mobile);
         data.append('isattending', isattending);
-
-        console.log(data.values)
+        var lang = Lang;
+        if (Lang == 'ENG')
+            lang = 'English';
+        else
+            lang = 'Afrikaans';
 
         $.ajax(
             {
-                url: '/Home/RSVP',
+                url: 'Home/RSVP/' + lang,
                 data: data,
                 processData: false,
                 contentType: false,
                 type: "POST",
                 success: function (result) {
                     if (result.success) {
-                        $('#RSVPnotifications').show();
-                        $('#RSVPnotifications').html('<div  class="alert alert-success" role="alert"> RSVP successful.</div>');
-                        $('#RSVPpanel').hide('slow');
+                        $('#' + Lang +'RSVPnotifications').show();
+                        $('#' + Lang +'RSVPnotifications').html('<div  class="alert alert-success" role="alert"> RSVP successful.</div>');
+                        $('#' + Lang +'RSVPpanel').hide('slow');
 
                     }
                     else {
-                        var newBody = $("#RSVPform", result);
-                        $("#RSVPform").replaceWith(newBody);
+                        var newBody = $('#' + Lang + 'RSVPform', result);
+                        console.log(newBody);
+                        $('#' + Lang +'RSVPform').replaceWith(newBody);
                     }
                 },
                 error: function (result) {
-                    $('#RSVPnotifications').html(' Looks like something went wrong! Please try again later.');
+                    $('#' + Lang +'RSVPnotifications').html(' Looks like something went wrong! Please try again later.');
 
                 }
             }
