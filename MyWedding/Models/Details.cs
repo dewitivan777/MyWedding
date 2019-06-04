@@ -10,5 +10,6 @@ namespace MyWedding.Models
         public int Total { get; set; }
         public int Attending { get; set; }
         public int NotAttending { get; set; }
+        public int Approved { get; set; }
     }
 }

@@ -9,24 +9,26 @@ using MyWedding;
 namespace MyWedding.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190526170953_init")]
+    [Migration("20190604092042_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024");
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085");
 
             modelBuilder.Entity("MyWedding.Models.Guest", b =>
                 {
                     b.Property<string>("id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Approved");
+
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<bool>("IsAttending");
+                    b.Property<bool?>("IsAttending");
 
                     b.Property<string>("Message")
                         .HasMaxLength(200);

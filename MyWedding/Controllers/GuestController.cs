@@ -11,6 +11,7 @@ using MyWedding.Repository;
 
 namespace MyWedding.Controllers
 {
+    [Authorize]
     public class GuestController : Controller
     {
         private readonly IGuestRepository<Guest> _guestRepository;

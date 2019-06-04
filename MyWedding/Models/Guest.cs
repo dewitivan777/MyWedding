@@ -31,10 +31,12 @@ namespace MyWedding.Models
         [DataType(DataType.MultilineText)]
         public string Message { get; set; }
 
-        public bool IsAttending { get; set; }
+        public bool? IsAttending { get; set; }
 
         public DateTime dateAdded { get; set; }
 
         public DateTime dateUpdated { get; set; }
+
+        public bool Approved { get; set; }
     }
 }

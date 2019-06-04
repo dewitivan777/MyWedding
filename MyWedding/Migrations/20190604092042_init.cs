@@ -17,9 +17,10 @@ namespace MyWedding.Migrations
                     mobile = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: false),
                     Message = table.Column<string>(maxLength: 200, nullable: true),
-                    IsAttending = table.Column<bool>(nullable: false),
+                    IsAttending = table.Column<bool>(nullable: true),
                     dateAdded = table.Column<DateTime>(nullable: false),
-                    dateUpdated = table.Column<DateTime>(nullable: false)
+                    dateUpdated = table.Column<DateTime>(nullable: false),
+                    Approved = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

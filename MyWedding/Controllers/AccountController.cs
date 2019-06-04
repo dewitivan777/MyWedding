@@ -91,6 +91,8 @@ namespace MyWedding.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginUser model)
         {
+
+          
             var user = await _userManager.FindByEmailAsync(model.Username);
             if (user == null)
             {
@@ -110,7 +112,7 @@ namespace MyWedding.Controllers
                 return View();
             }
 
-            return RedirectToAction(model.ReturnUrl);
+            return RedirectToRoute("~"+model.ReturnUrl);
         }
 
         public IActionResult ForgotPassword()
