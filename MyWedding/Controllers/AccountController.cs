@@ -112,10 +112,19 @@ namespace MyWedding.Controllers
                 return View();
             }
 
-            return RedirectToRoute("~"+model.ReturnUrl);
+            return RedirectToAction("ShowGrid","Guest");
         }
 
-        public IActionResult ForgotPassword()
+
+        public async Task<IActionResult> Logout(LoginUser model)
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
+
+        }
+
+            public IActionResult ForgotPassword()
         {
             return View();
         }

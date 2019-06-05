@@ -32,6 +32,18 @@
                     </li>
                 </ul>
 
+                @if (User.Identity.IsAuthenticated)
+                {
+                <div class="pull-right">     <a class="nav-link" asp-controller="Account" asp-action="Logout" > Logout <span class="sr-only">(current)</span></a></div>
+                }
+                else
+                {
+                    <div class="pull-right">
+                        <a class="nav-link" asp-controller="Account" asp-action="Login"> Login <span class="sr-only">(current)</span></a>
+
+                    </div>
+                }
+
             </div>
         </nav>
     </header>

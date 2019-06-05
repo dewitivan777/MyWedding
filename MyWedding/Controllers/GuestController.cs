@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Email.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyWedding.Models;
 using MyWedding.Repository;
@@ -16,11 +17,13 @@ namespace MyWedding.Controllers
     {
         private readonly IGuestRepository<Guest> _guestRepository;
         private readonly IEmailService _messageService;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public GuestController(IGuestRepository<Guest> guestRepository, IEmailService messageService)
+        public GuestController(IGuestRepository<Guest> guestRepository, IEmailService messageService, UserManager<IdentityUser> userManager)
         {
             _guestRepository = guestRepository;
             _messageService = messageService;
+            _userManager = userManager;
         }
 
         [Route("~/Guest")]

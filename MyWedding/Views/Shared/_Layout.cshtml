@@ -19,6 +19,7 @@
     <link href="~/lib/twitter-bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
     <link href="~/lib/twitter-bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" />
     <link href="~/lib/font/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/font/css/all.min.css" rel="stylesheet" />
     <link href="~/lib/twitter-bootstrap/awesome-bootstrap-checkbox.min.css" rel="stylesheet" />
     <link href="~/lib/twitter-bootstrap/css/bootstrap-toggle.min.css" rel="stylesheet" />
     <link href="~/lib/animate/animate.min.css" rel="stylesheet" />
@@ -33,7 +34,10 @@
                 <a class="navbar-brand" href="#" style="font-family: Prata; font-size: 45px; color:gray">
                     Moné&amp;Ivan
                 </a>
-                <button class="navbar-toggler navbar-toggler-icon bg-dark " type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"></button>
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+              <span><i class="fas fa-bars"></i></span>
+                </button>
+                
                 <div class="collapse navbar-collapse" id="navbar">
 
                     @if (ViewBag.language == "English")
@@ -151,6 +155,22 @@
                 }
             );
         }
+
+        $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+            var next = $(this).next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+
+            for (var i = 0; i < 4; i++) {
+                next = next.next();
+                if (!next.length) {
+                    next = $(this).siblings(':first');
+                }
+                next.children(':first-child').clone().appendTo($(this));
+            }
+        });
     </script>
 
 
