@@ -1,5 +1,12 @@
 ﻿<!DOCTYPE html>
 
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -35,9 +42,9 @@
                     Moné&amp;Ivan
                 </a>
                 <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
-              <span><i class="fas fa-bars"></i></span>
+                    <span><i class="fas fa-bars"></i></span>
                 </button>
-                
+
                 <div class="collapse navbar-collapse" id="navbar">
 
                     @if (ViewBag.language == "English")
@@ -46,23 +53,23 @@
 
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#wedding" style="color:burlywood;">
+                                <a class="nav-link" href="#@(ViewBag.language)wedding" style="color:burlywood;">
                                     Wedding
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#accomm" style="color:burlywood;">
+                                <a class="nav-link" href="#@(ViewBag.language)accomm" style="color:burlywood;">
                                     Accommodation
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#registry" style="color:burlywood;">
+                                <a class="nav-link" href="#@(ViewBag.language)registry" style="color:burlywood;">
                                     Registry
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#rsvp" style="color:burlywood;">
+                                <a class="nav-link" href="#@(ViewBag.language)rsvp" style="color:burlywood;">
                                     RSVP
                                 </a>
                             </li>
@@ -76,23 +83,23 @@
 
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#wedding" style="color:burlywood;">
+                                <a class="nav-link" href="#@(ViewBag.language)wedding" style="color:burlywood;">
                                     Troue
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#accomm" style="color:burlywood;">
+                                <a class="nav-link" href="#@(ViewBag.language)accomm" style="color:burlywood;">
                                     Akkommodasie
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#registry" style="color:burlywood;">
+                                <a class="nav-link" href="#@(ViewBag.language)registry" style="color:burlywood;">
                                     Register
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#rsvp" style="color:burlywood;">
+                                <a class="nav-link" href="#@(ViewBag.language)rsvp" style="color:burlywood;">
                                     RSVP
                                 </a>
                             </li>
@@ -121,7 +128,6 @@
     </div>
     <footer class="container">
         <p class="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2017-2019 Company, Inc. &middot;</p>
     </footer>
 
     <script src="~/lib/jquery/jquery.min.js"></script>
@@ -129,6 +135,7 @@
     <script src="~/lib/jquery/jquery.countdown.min.js"></script>
     <script src="~/lib/jquery/jquery.easing.js"></script>
     <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/Parallax/parallax.min.js"></script>
     <script src="~/lib/twitter-bootstrap/js/bootstrap-toggle.min.js"></script>
     <script src="~/lib/twitter-bootstrap/js/bootstrap-checkbox.js"></script>
     <script src="~/lib/Site.js"></script>

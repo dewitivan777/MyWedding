@@ -89,7 +89,7 @@
 </div>
 
 
-<div class="container">
+<div class="container-fluid">
     <br />
     <div id="TableHeader"> <partial name="_GuestAdd" model="new MyWedding.Models.Guest {}" />    <a href="/Guest/details" class="btn btn-info details">Details</a>  </div>
     <div style="width:90%; margin:0 auto;">
@@ -97,11 +97,15 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>name</th>
-                    <th>surname</th>
-                    <th>email</th>
-                    <th>mobile</th>
-                    <th>isattending</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Isattending</th>
+                    <th>Dateadded</th>
+                    <th>Dateupdated</th>
+                    <th>Approved</th>
                     <th>Edit</th>
                     <th>Delete</th>
                     <th>Email</th>
@@ -135,9 +139,13 @@
                 { "data": "id", "name": "id", "autoWidth": true },
                 { "data": "name", "name": "name", "autoWidth": true },
                 { "data": "surname", "name": "surname", "autoWidth": true },
-                { "data": "email", "name": "email", "autoWidth": true },
                 { "data": "mobile", "name": "mobile", "autoWidth": true },
-                { "data": "isattending", "render": simple_checkbox },
+                { "data": "email", "name": "email", "autoWidth": true },
+                { "data": "message", "name": "message", "autoWidth": true },
+                { "data": "isAttending", "render": simple_checkbox},
+                { "data": "dateadded", "name": "dateadded", "autoWidth": true },
+                { "data": "dateupdated", "name": "dateupdated", "autoWidth": true },
+                { "data": "approved", "render": ApproveButton},
                 {
                     "render": function (data, type, full, meta) { return '<a href="/Guest/edit/' + full.id + '" class="btn btn-info editAsset" >Edit</a>' }
                 },
@@ -154,11 +162,19 @@
             ]
         });
     });
+
     var simple_checkbox = function (data, type, full, meta) {
         var is_checked = data == true ? "checked" : "";
-        return '<input disabled type="checkbox" class="checkbox" ' +
+        return '<input type="checkbox" disabled class="checkbox" ' +
             is_checked + ' />';
     }
+
+    var ApproveButton = function (data, type, full, meta) {
+        var is_checked = data == true ? "disabled" : "";
+        return '<button type="button" class="btn btn-info ApproveGuest" ' +
+            is_checked + '>Approve</button>';
+    }
+
     function DeleteGuest(CustomerID) {
         $('#GuestDelete').modal('show');
         document.getElementById("deleteID").value = CustomerID;

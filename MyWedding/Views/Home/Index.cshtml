@@ -13,14 +13,76 @@
         display: inline-block;
     }
 
+    .my-card {
+        position: absolute;
+        left: 40%;
+        top: -20px;
+        border-radius: 50%;
+    }
+
+    .customborder {
+        border: solid;
+        border-color: burlywood;
+    }
+
+    .parallax {
+        /* The image used */
+        background-image: url('/content/images/our_story_parallax.jpg');
+        /* Set a specific height */
+        height: 500px;
+        width: 100%;
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parallax2 {
+        /* The image used */
+        background-image: url('/content/images/IMG_6165.jpg');
+        /* Set a specific height */
+        height: 600px;
+        width: 100%;
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parallax3 {
+        /* The image used */
+        background-image: url('/content/images/weddings-parallax_1.jpg');
+        /* Set a specific height */
+        height: 600px;
+        width: 100%;
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .ajax-loader {
+        visibility: hidden;
+    }
+
+        .ajax-loader img {
+            position: relative;
+            top: 50%;
+            left: 50%;
+        }
+
 </style>
+
 
 <main id="main" role="main" style="font-family: Prata;">
 
     @if (ViewBag.language == "English")
     {
         <!-- HEADER 01 -->
-        <section id="home">
+        <section id="Englishhome">
 
             <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -34,7 +96,8 @@
                         <img src="~/content/images/IMG_6305.jpg" style="width:100%" />
                         <div class="container">
                             <div class="carousel-caption">
-                                <p><a class="btn btn-lg btn-light" href="#rsvp" role="button">RSVP</a></p>
+                                <p><span style="color:white; font-size:36px; ">RSVP by the 13th of September</span></p>
+                                <p><a class="btn btn-lg btn-light" href="#Englishrsvp" role="button">RSVP now</a></p>
                             </div>
                         </div>
                     </div>
@@ -75,9 +138,10 @@
             </div>
 
         </section>
-
+        <br />
+        <br />
         <!-- WEDDING 01 -->
-        <section id="wedding">
+        <section id="Englishwedding">
             <div class="container">
                 <div class="row">
 
@@ -122,19 +186,24 @@
 
                     </div>
 
+                    <br />
+                    <br />
                     <div class="col-md-12 text-center mt-3" data-sr-id="4" style="" ; visibility: visible;>
                         <H3>
                             Map
                         </H3>
-
+                        <br />
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5080.332915705885!2d28.431018307736807!3d-25.79242569250322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf74ab5bb8eaed44!2sRosemary+Hill!5e0!3m2!1sen!2sza!4v1556132463713!5m2!1sen!2sza" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </section>
-
+        <br />
+        <div class="parallax"></div>
         <!-- ACCOMM 01 -->
-        <section id="accomm" class="accomm-01">
+        <br />
+        <br />
+        <section id="Englishaccomm" class="accomm-01">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center" data-sr-id="6" style="" ; visibility: visible;>
@@ -148,42 +217,63 @@
                         </h5>
 
                     </div>
-                    <div class="col-sm-6 text-right mt-5 wow fadeInLeft" style="background-color:bisque">
+                    <div class="col-sm-4 text-right mt-5 wow fadeInLeft" style="background-color:bisque">
                         <h5>
-                            Riverstone Lodge
+                            Tree Tops
                         </h5>
                         <p class="accomm-left">
                             Reservations
                         </p>
                         <p class="accomm-left">
-                            011 668 3111
+                            083 268 5519
                         </p>
                         <p class="accomm-left">
-                            <a href="mailto:info@riverstone.co.za">info@riverstone.co.za</a>
+                            <a href="mailto:tdmccusker@gmail.com">tdmccusker@gmail.com</a>
                         </p>
                         <p class="accomm-left">
-                            <a href="" target="_blank">N14, The Drift, Krugersdorp</a>
+                            <a href="http://www.treetopsaccomodation.co.za/" target="_blank">500m from Rosemary Hill</a>
 
                         </p>
 
                         <div class="clearfix">
                         </div>
                     </div>
-                    <div class="col-sm-6 text-left mt-5 wow fadeInRight" style="background-color:bisque">
+                    <div class="col-sm-4 text-center mt-5 wow fadeInDown" style="background-color:bisque">
                         <h5>
-                            The Rabbit Hole Hotel
+                            Rosemary Hill
                         </h5>
                         <p class="accomm-right">
                             Reservations
                         </p>
                         <p class="accomm-right">
-                            082 878 1731
+                            012 802 0052 / 083 235 6857
                         </p>
                         <p class="accomm-right">
-                            <a href="mailto:info@rabbitholehotel.co.za">info@rabbitholehotel.co.za</a>
+                            <a href="mailto:info@rosemaryhill.co.za"> info@rosemaryhill.co.za</a>
                         </p>
                         <p class="accomm-right">
-                            <a href="" target="_blank">33 a Viljoen St, Krugersdorp</a>
+                            <a href="http://www.rosemaryhill.co.za/" target="_blank">At venue</a>
+
+                        </p>
+
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-left mt-5 wow fadeInRight" style="background-color:bisque">
+                        <h5>
+                            Silver Fig
+                        </h5>
+                        <p class="accomm-right">
+                            Reservations
+                        </p>
+                        <p class="accomm-right">
+                            012 802 4017 / 082 300 8877
+                        </p>
+                        <p class="accomm-right">
+                            <a href="mailto:info@silverfig@mweb.co.za"> silverfig@mweb.co.za</a>
+                        </p>
+                        <p class="accomm-right">
+                            <a href="https://silverfigguesthouse.co.za/" target="_blank">800m from Rosemary Hill</a>
 
                         </p>
 
@@ -192,139 +282,14 @@
                     </div>
 
                 </div>
-            </div>
-
-            <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
-
-                <!--Controls-->
-                <div class="controls-top">
-                    <a class="btn btn-floating" href="#carousel-example-multi" data-slide="prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </a>
-                    <a class="btn btn-floating" href="#carousel-example-multi" data-slide="next">
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
-                </div>
-                <!--/.Controls-->
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-multi" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-multi" data-slide-to="2"></li>
-                    <li data-target="#carousel-example-multi" data-slide-to="3"></li>
-                    <li data-target="#carousel-example-multi" data-slide-to="4"></li>
-                    <li data-target="#carousel-example-multi" data-slide-to="5"></li>
-                </ol>
-                <!--/.Indicators-->
-
-                <div class="carousel-inner v-2" role="listbox">
-
-                    <div class="carousel-item active">
-                        <div class="col-12 col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (36).jpg"
-                                     alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title font-weight-bold">Card title</h4>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.
-                                    </p>
-                                    <a class="btn btn-primary btn-md btn-rounded">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-12 col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (34).jpg"
-                                     alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title font-weight-bold">Card title</h4>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.
-                                    </p>
-                                    <a class="btn btn-primary btn-md btn-rounded">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-12 col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (38).jpg"
-                                     alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title font-weight-bold">Card title</h4>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.
-                                    </p>
-                                    <a class="btn btn-primary btn-md btn-rounded">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-12 col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (29).jpg"
-                                     alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title font-weight-bold">Card title</h4>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.
-                                    </p>
-                                    <a class="btn btn-primary btn-md btn-rounded">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-12 col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (30).jpg"
-                                     alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title font-weight-bold">Card title</h4>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.
-                                    </p>
-                                    <a class="btn btn-primary btn-md btn-rounded">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-12 col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (27).jpg"
-                                     alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title font-weight-bold">Card title</h4>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.
-                                    </p>
-                                    <a class="btn btn-primary btn-md btn-rounded">Button</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
 
         </section>
 
-
+        <br />
+        <br />
         <!-- REGISTRY 01 -->
-        <section id="registry">
+        <section id="Englishregistry">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center" data-sr-id="8" style="" ; visibility: visible;>
@@ -333,24 +298,8 @@
                             Gift Registry
                         </h3>
 
-                        <p class="wellWishTextarea">
-                            More than just kisses so far weâ€™ve shared<br>our home has been made with love and care. <br>Most things we need weâ€™ve already got, <br>like a toaster and kettle, the pans and the pots. <br>A wishing well we thought would be great, <br>(but only if you wish to participate). <br>A gift of money is placed in the well, <br>then make a wish but do not tell. <br>Once weâ€™ve replaced the old with the new, <br>we can look back and say it was thanks to you!
-                        </p>
-
-                    </div>
-                    <div class="col-sm-12 text-center mt-5">
-                        <h5 class="mt-2 mb-3">
-                            Yuppychef.co.za
-                        </h5>
                         <p class="accomm-center">
-                            A selection of items we would LOVE to add to our new home!
-                        </p>
-                        <p class="accomm-center">
-                            YC69574-2
-                        </p>
-
-                        <p class="accomm-center">
-                            <a href="https://www.yuppiechef.com/registry.htm?action=view&orderid=3761673" target="_blank" class="btn btn-default">
+                            <a href="https://www.yuppiechef.com/registry.htm?action=view&orderid=3761673" target="_blank" class="btn btn-outline-primary">
                                 View Online
                                 <i class="ion-ios-arrow-right"></i>
                             </a>
@@ -362,103 +311,92 @@
                 </div>
             </div>
         </section>
-
+        <br />
         <figure>
-            <img src="~/content/images/IMG_6165.jpg" style="width:100%" />
-            <figcaption>Photos by <a href="https://www.travellingafrikaner.com/" target="_blank">The Traveling Afrikaner</a>  </figcaption>
+            <div class="parallax2" style="width:100%"></div>
+            <figcaption>Photo by <a href="https://www.travellingafrikaner.com/" target="_blank">The Traveling Afrikaner</a>  </figcaption>
         </figure>
 
-        <br />
-
         <!-- Info 01 -->
-        <section id="infoSection">
-            <div class="container">
-                <div class="row justify-content-center">
-
-                    <div class="col-md-12 text-center">
-                        <div class="row">
-
-                            <div class="col-12 col-sm wow pulse">
-                                <h3>Cash Bar Available</h3>
-                            </div>
-
-                            <div class="col-12 col-sm wow pulse">
-                                <h3>By Invitation Only</h3>
-                            </div>
-
-                            <div class="col-12 col-sm wow pulse">
-                                <h3>Regret No Children</h3>
-                            </div>
-
-                        </div>
+        <section id="EnglishinfoSection">
+            <div class="row container-fluid">
+                <div class="col-md-4">
+                    <div class="card customborder mx-sm-1 p-3">
+                        <div class="card customborder shadow p-3 my-card"><span class="fa fa-cash-register" aria-hidden="true"></span></div>
+                        <div class="text-black-50 text-center mt-3"><h2>Cash</h2></div>
+                        <div class="text-black-50 text-center mt-2"><h4>Bar Available</h4></div>
                     </div>
-
+                </div>
+                <div class="col-md-4">
+                    <div class="card customborder mx-sm-1 p-3">
+                        <div class="card customborder shadow p-3 my-card"><span class="fa fa-mail-bulk" aria-hidden="true"></span></div>
+                        <div class="text-black-50 text-center mt-3"><h2>By</h2></div>
+                        <div class="text-black-50 text-center mt-2"><h4>Invitation Only</h4></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card customborder mx-sm-1 p-3">
+                        <div class="card customborder shadow  p-3 my-card"><span class="fa fa-child" aria-hidden="true"></span></div>
+                        <div class="text-black-50 text-center mt-3"><h2>Regret</h2></div>
+                        <div class="text-black-50 text-center mt-2"><h4>No Children</h4></div>
+                    </div>
                 </div>
             </div>
         </section>
 
 
-
+        <div class="parallax3" style="width:100%"></div>
+        <br />
         <!-- RSVP 01 -->
-        <section id="rsvp">
+        <section id="Englishrsvp">
             <div class="container">
                 <div class="row justify-content-center">
 
                     <div class="col-md-12 text-center">
 
                         <div class="row mb-4">
-                            <div class="col mt-5 mb-4">
-                                <a href="RSVPform" class="btn">
-                                    ONLINE
-                                    <i class="ion-ios-arrow-down"></i>
-                                </a>
-                                <a href="#RSVPpersonal" class="btn">
-                                    PERSON
-                                    <i class="ion-ios-arrow-down"></i>
-                                </a>
-                            </div>
                         </div>
                         <div id="accomm-form-scroll"></div>
 
                         <h3>
                             Online RSVP
                         </h3>
-
+                        <p>Fill in your details below</p>
                         <div class="rsvpHeightScroll"></div>
                     </div>
 
-
+                    <br />
                     <div class="col-sm-10 text-center wow flipInX" style="background-color:bisque" id="ENGRSVPpanel">
-                        <form  id="ENGRSVPform" data-ajax="true" data-ajax-method="post" data-ajax-update="#ENGRSVPform" data-ajax-mode="replace">
+                        <form id="ENGRSVPform" data-ajax="true" data-ajax-method="post" data-ajax-update="#ENGRSVPform" data-ajax-mode="replace">
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label asp-for="Name" class="control-label">Name</label>
-                                    <input asp-for="Name" id="ENGRSVPname" class="form-control" placeholder="Enter your name" />
+                                    <label asp-for="Name" class="control-label">Name<span style="color:red;">*</span></label>
+                                    <input asp-for="Name" id="ENGRSVPname" class="form-control" placeholder="Enter your name (Required)" />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label asp-for="Surname" class="control-label">Surname</label>
-                                    <input asp-for="Surname" id="ENGRSVPsurname" class="form-control" placeholder="Enter your surname" />
+                                    <label asp-for="Surname" class="control-label">Surname<span style="color:red;">*</span></label>
+                                    <input asp-for="Surname" id="ENGRSVPsurname" class="form-control" placeholder="Enter your surname (Required)" />
                                     <span asp-validation-for="Surname" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label asp-for="Email" class="control-label">Email</label>
-                                    <input asp-for="Email" id="ENGRSVPemail" class="form-control" placeholder="Enter your email address" />
+                                    <label asp-for="Email" class="control-label">Email<span style="color:red;">*</span></label>
+                                    <input asp-for="Email" id="ENGRSVPemail" class="form-control" placeholder="Enter your email address (Required)" />
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label asp-for="mobile" class="control-label">Cell</label>
-                                    <input asp-for="mobile" id="ENGRSVPmobile" class="form-control" placeholder="Enter your cell" />
+                                    <label asp-for="mobile" class="control-label">Cellphone</label>
+                                    <input asp-for="mobile" id="ENGRSVPmobile" class="form-control" placeholder="Enter your cellphone number (Optional)" />
                                     <span asp-validation-for="mobile" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Message" class="control-label">Message</label>
-                                <textarea asp-for="Message" id="ENGRSVPmessage" class="form-control" placeholder="Enter your message" rows="3"></textarea>
+                                <textarea asp-for="Message" id="ENGRSVPmessage" class="form-control" placeholder="Enter your message (Optional)" rows="3"></textarea>
                                 <span asp-validation-for="Message" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -470,15 +408,12 @@
                                             <script>
                                                 $(function () {
                                                     $('#ENGRSVPisattending').bootstrapToggle();
-                                           
                                                 })
                                             </script>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -489,22 +424,25 @@
                                 </div>
                             </div>
                         </form>
-
-
                     </div>
-                    <div id="ENGRSVPnotifications"></div>
                 </div>
             </div>
-        </section>
+            <div id="ENGRSVPnotifications"></div>
+            <div class="ajax-loader" id="ENGajax-loader">
+                <img src="~/content/Loader/ajax-loader.gif" class="img-responsive" />
+            </div>
 
+        </section>
+        <br />
+        <br />
         <!-- RSVPs -->
-        <section id="RSVPpersonal">
+        <section id="EnglishRSVPpersonal">
             <div class="container">
                 <div class="row wow fadeInUp">
                     <div class="col-md-12 text-center rsvpHeightScroll ">
 
                         <h3>
-                            Direct RSVP
+                            Feel free to contact us
                         </h3>
 
                     </div>
@@ -524,10 +462,6 @@
                         </p>
 
 
-
-
-                        <div class="clearfix">
-                        </div>
                     </div>
 
                 </div>
@@ -537,7 +471,7 @@
     else
     {
         <!-- HEADER 01 -->
-        <section id="home">
+        <section id="Afrikaanshome">
 
             <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -551,7 +485,8 @@
                         <img src="~/content/images/IMG_6305.jpg" style="width:100%" />
                         <div class="container">
                             <div class="carousel-caption">
-                                <p><a class="btn btn-lg btn-light" href="#rsvp" role="button">RSVP</a></p>
+                                <p><span style="color:white; font-size:36px; ">RSVP teen die 13de September</span></p>
+                                <p><a class="btn btn-lg btn-light" href="#Afrikaansrsvp" role="button">RSVP nou</a></p>
                             </div>
                         </div>
                     </div>
@@ -561,19 +496,19 @@
                         <div class="container">
                             <div class="carousel-caption">
                                 <ul id="example">
-                                    <li><span id="days"></span><p class="days_text">Days</p></li>
+                                    <li><span id="days"></span><p class="days_text">Dae</p></li>
 
                                     <li class="seperator">:</li>
 
-                                    <li><span id="hours"></span><p class="hours_text">Hours</p></li>
+                                    <li><span id="hours"></span><p class="hours_text">Ure</p></li>
 
                                     <li class="seperator">:</li>
 
-                                    <li><span id="minutes"></span><p class="minutes_text">Minutes</p></li>
+                                    <li><span id="minutes"></span><p class="minutes_text">Minute</p></li>
 
                                     <li class="seperator">:</li>
 
-                                    <li><span id="seconds"></span><p class="seconds_text">Seconds</p></li>
+                                    <li><span id="seconds"></span><p class="seconds_text">Sekondes</p></li>
 
                                 </ul>
                             </div>
@@ -593,9 +528,10 @@
 
         </section>
 
-
+        <br />
+        <br />
         <!-- WEDDING 01 -->
-        <section id="wedding">
+        <section id="Afrikaanswedding">
             <div class="container">
                 <div class="row">
 
@@ -605,7 +541,7 @@
                             Seremonie
                         </h3>
                         <p>
-                            Lokaal: Rosemary hill
+                            Lokaal: Rosemary Hill
                         </p>
 
                         <p>
@@ -623,10 +559,10 @@
                     <div class="col-md-6 text-center mt-3 wow bounceInRight" style="background-color:bisque">
 
                         <h3>
-                            Ontvangs
+                            Onthaal
                         </h3>
                         <p>
-                            Lokaal: Rosemary hill
+                            Lokaal: Rosemary Hill
                         </p>
 
                         <p>
@@ -641,18 +577,24 @@
                     </div>
 
                     <div class="col-md-12 text-center mt-3" data-sr-id="4" style="" ; visibility: visible;>
+                        <br />
+                        <br />
                         <H3>
-                            Pad Kaart
+                            Padkaart
                         </H3>
-
+                        <br />
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5080.332915705885!2d28.431018307736807!3d-25.79242569250322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf74ab5bb8eaed44!2sRosemary+Hill!5e0!3m2!1sen!2sza!4v1556132463713!5m2!1sen!2sza" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </section>
 
+        <br />
+        <div class="parallax"></div>
+        <br />
+        <br />
         <!-- ACCOMM 01 -->
-        <section id="accomm" class="accomm-01">
+        <section id="Afrikaansaccomm" class="accomm-01">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center" data-sr-id="6" style="" ; visibility: visible;>
@@ -662,46 +604,67 @@
                         </h3>
 
                         <h5>
-                            Available accommodation within a few kms from the venue
+                            Beskikbare akkommodasie binne 'n paar kilometer van die lokaal
                         </h5>
 
                     </div>
-                    <div class="col-sm-6 text-right mt-5 wow fadeInLeft" style="background-color:bisque">
+                    <div class="col-sm-4 text-right mt-5 wow fadeInLeft" style="background-color:bisque">
                         <h5>
-                            Riverstone Lodge
+                            Tree Tops
                         </h5>
                         <p class="accomm-left">
-                            Reservations
+                            Besprekings
                         </p>
                         <p class="accomm-left">
-                            011 668 3111
+                            083 268 5519
                         </p>
                         <p class="accomm-left">
-                            <a href="mailto:info@riverstone.co.za">info@riverstone.co.za</a>
+                            <a href="mailto:tdmccusker@gmail.com">tdmccusker@gmail.com</a>
                         </p>
                         <p class="accomm-left">
-                            <a href="" target="_blank">N14, The Drift, Krugersdorp</a>
+                            <a href="http://www.treetopsaccomodation.co.za/" target="_blank">500m van Rosemary Hill</a>
 
                         </p>
 
                         <div class="clearfix">
                         </div>
                     </div>
-                    <div class="col-sm-6 text-left mt-5 wow fadeInRight" style="background-color:bisque">
+                    <div class="col-sm-4 text-center mt-5 wow fadeInDown" style="background-color:bisque">
                         <h5>
-                            The Rabbit Hole Hotel
+                            Rosemary Hill
                         </h5>
                         <p class="accomm-right">
-                            Reservations
+                            Besprekings
                         </p>
                         <p class="accomm-right">
-                            082 878 1731
+                            012 802 0052 / 083 235 6857
                         </p>
                         <p class="accomm-right">
-                            <a href="mailto:info@rabbitholehotel.co.za">info@rabbitholehotel.co.za</a>
+                            <a href="mailto:info@rosemaryhill.co.za"> info@rosemaryhill.co.za</a>
                         </p>
                         <p class="accomm-right">
-                            <a href="" target="_blank">33 a Viljoen St, Krugersdorp</a>
+                            <a href="http://www.rosemaryhill.co.za/" target="_blank">At venue</a>
+
+                        </p>
+
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-left mt-5 wow fadeInRight" style="background-color:bisque">
+                        <h5>
+                            Silver Fig
+                        </h5>
+                        <p class="accomm-right">
+                            Besprekings
+                        </p>
+                        <p class="accomm-right">
+                            012 802 4017 / 082 300 8877
+                        </p>
+                        <p class="accomm-right">
+                            <a href="mailto:info@silverfig@mweb.co.za"> silverfig@mweb.co.za</a>
+                        </p>
+                        <p class="accomm-right">
+                            <a href="https://silverfigguesthouse.co.za/" target="_blank">800m van Rosemary Hill</a>
 
                         </p>
 
@@ -713,9 +676,10 @@
             </div>
         </section>
 
-
+        <br />
+        <br />
         <!-- REGISTRY 01 -->
-        <section id="registry">
+        <section id="Afrikaansregistry">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center" data-sr-id="8" style="" ; visibility: visible;>
@@ -724,25 +688,10 @@
                             Geskenkregister
                         </h3>
 
-                        <p class="wellWishTextarea">
-                            More than just kisses so far weâ€™ve shared<br>our home has been made with love and care. <br>Most things we need weâ€™ve already got, <br>like a toaster and kettle, the pans and the pots. <br>A wishing well we thought would be great, <br>(but only if you wish to participate). <br>A gift of money is placed in the well, <br>then make a wish but do not tell. <br>Once weâ€™ve replaced the old with the new, <br>we can look back and say it was thanks to you!
-                        </p>
-
-                    </div>
-                    <div class="col-sm-12 text-center mt-5">
-                        <h5 class="mt-2 mb-3">
-                            Yuppychef.co.za
-                        </h5>
-                        <p class="accomm-center">
-                            A selection of items we would LOVE to add to our new home!
-                        </p>
-                        <p class="accomm-center">
-                            YC69574-2
-                        </p>
 
                         <p class="accomm-center">
-                            <a href="https://www.yuppiechef.com/registry.htm?action=view&orderid=3761673" target="_blank" class="btn btn-default">
-                                View Online
+                            <a href="https://www.yuppiechef.com/registry.htm?action=view&orderid=3761673" target="_blank" class="btn btn-outline-primary">
+                                Sien Aanlyn
                                 <i class="ion-ios-arrow-right"></i>
                             </a>
                         </p>
@@ -752,115 +701,104 @@
 
                 </div>
             </div>
+            <br />
         </section>
         <figure>
-            <img src="~/content/images/IMG_6165.jpg" style="width:100%" />
-            <figcaption>Foto's deur <a href="https://www.travellingafrikaner.com/" target="_blank">The Traveling Afrikaner</a>  </figcaption>
+          <div class="parallax2"></div>
+            <figcaption>Foto deur <a href="https://www.travellingafrikaner.com/" target="_blank">The Traveling Afrikaner</a>  </figcaption>
         </figure>
 
-        <br />
         <!-- Info 01 -->
         <section id="infoSection">
-            <div class="container">
-                <div class="row justify-content-center">
-
-                    <div class="col-md-12 text-center">
-                        <div class="row">
-
-                            <div class="col-12 col-sm wow pulse">
-                                <h3> Bar met kaart fasilitieite beskikbaar</h3>
-                            </div>
-
-                            <div class="col-12 col-sm wow pulse">
-                                <h3>Slegs Per Uitnodiging</h3>
-                            </div>
-
-                            <div class="col-12 col-sm wow pulse">
-                                <h3>Ongelukking geen kinders nie</h3>
-                            </div>
-
-                        </div>
+            <div class="row container-fluid">
+                <div class="col-md-4">
+                    <div class="card customborder mx-sm-1 p-3">
+                        <div class="card customborder shadow p-3 my-card"><span class="fa fa-cash-register" aria-hidden="true"></span></div>
+                        <div class="text-black-50 text-center mt-3"><h2>Kroeg</h2></div>
+                        <div class="text-black-50 text-center mt-2"><h4>Met Kaartfasilitieite Beskikbaar</h4></div>
                     </div>
-
+                </div>
+                <div class="col-md-4">
+                    <div class="card customborder mx-sm-1 p-3">
+                        <div class="card customborder shadow p-3 my-card"><span class="fa fa-mail-bulk" aria-hidden="true"></span></div>
+                        <div class="text-black-50 text-center mt-3"><h2>Slegs</h2></div>
+                        <div class="text-black-50 text-center mt-2"><h4>Per Uitnodiging</h4></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card customborder mx-sm-1 p-3">
+                        <div class="card customborder shadow  p-3 my-card"><span class="fa fa-child" aria-hidden="true"></span></div>
+                        <div class="text-black-50 text-center mt-3"><h2>Ongelukking</h2></div>
+                        <div class="text-black-50 text-center mt-2"><h4>Geen Kinders Nie</h4></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-
-
+        <div class="parallax3"></div>
+        <br />
         <!-- RSVP 01 -->
-        <section id="rsvp">
+        <section id="Afrikaansrsvp">
             <div class="container">
                 <div class="row justify-content-center">
 
                     <div class="col-md-12 text-center">
 
-                        <div class="row mb-4">
-                            <div class="col mt-5 mb-4">
-                                <a href="RSVPform" class="btn">
-                                    AANLYN
-                                    <i class="ion-ios-arrow-down"></i>
-                                </a>
-                                <a href="#RSVPpersonal" class="btn">
-                                    In Persoon
-                                    <i class="ion-ios-arrow-down"></i>
-                                </a>
-                            </div>
-                        </div>
                         <div id="accomm-form-scroll"></div>
 
                         <h3>
                             AANLYN RSVP
                         </h3>
+                        <p>Vul U besonderhede hieronder in</p>
 
                         <div class="rsvpHeightScroll"></div>
                     </div>
 
 
                     <div class="col-sm-10 text-center wow flipInX" style="background-color:bisque" id="AFRRSVPpanel">
-                        <form  id="AFRRSVPform" data-ajax="true" data-ajax-method="post" data-ajax-update="#AFRRSVPform" data-ajax-mode="replace">
+                        <form id="AFRRSVPform" data-ajax="true" data-ajax-method="post" data-ajax-update="#AFRRSVPform" data-ajax-mode="replace">
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label asp-for="Name" class="control-label">Name</label>
-                                    <input asp-for="Name" id="AFRRSVPname" class="form-control" placeholder="Enter your name" />
+                                    <label asp-for="Name" class="control-label">Naam<span style="color:red;">*</span></label>
+                                    <input asp-for="Name" id="AFRRSVPname" class="form-control" placeholder="Voltooi jou naam (Vereis)" />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label asp-for="Surname" class="control-label">Surname</label>
-                                    <input asp-for="Surname" id="AFRRSVPsurname" class="form-control" placeholder="Enter your surname" />
+                                    <label asp-for="Surname" class="control-label">Van<span style="color:red;">*</span></label>
+                                    <input asp-for="Surname" id="AFRRSVPsurname" class="form-control" placeholder="Voltooi jou van (Vereis)" />
                                     <span asp-validation-for="Surname" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label asp-for="Email" class="control-label">Email</label>
-                                    <input asp-for="Email" id="AFRRSVPemail" class="form-control" placeholder="Enter your email address" />
+                                    <label asp-for="Email" class="control-label">E-pos<span style="color:red;">*</span></label>
+                                    <input asp-for="Email" id="AFRRSVPemail" class="form-control" placeholder="Voltooi jou e-pos address (Vereis)" />
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label asp-for="mobile" class="control-label">Cell</label>
-                                    <input asp-for="mobile" id="AFRRSVPmobile" class="form-control" placeholder="Enter your cell" />
+                                    <label asp-for="mobile" class="control-label">Selfoon</label>
+                                    <input asp-for="mobile" id="AFRRSVPmobile" class="form-control" placeholder="Voltooi jou selfoonnommer (Opsioneel)" />
                                     <span asp-validation-for="mobile" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Message" class="control-label">Message</label>
-                                <textarea asp-for="Message" id="AFRRSVPmessage" class="form-control" placeholder="Enter your message" rows="3"></textarea>
+                                <label asp-for="Message" class="control-label">Boodskap</label>
+                                <textarea asp-for="Message" id="AFRRSVPmessage" class="form-control" placeholder="Voltooi boodskap (Opsioneel)" rows="3"></textarea>
                                 <span asp-validation-for="Message" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <div>
-                                    <label asp-for="IsAttending" class="control-label">Are you attending the wedding?</label>
+                                    <label asp-for="IsAttending" class="control-label">Woon U die troue by?</label>
                                     <div class="checkbox">
 
                                         <input id="AFRRSVPisattending" type="checkbox" checked data-toggle="toggle" data-on="Ja" data-off="Nee" data-offstyle="warning">
-                               
+
                                         <script>
                                             $(function () {
                                                 $('#AFRRSVPisattending').bootstrapToggle({
-                                                    
+
                                                 });
 
                                             })
@@ -884,19 +822,26 @@
 
 
                     </div>
-                    <div id="AFRRSVPnotifications"></div>
+
                 </div>
             </div>
+            <div id="AFRRSVPnotifications" class="alert"></div>
+            <div class="ajax-loader" id="AFRajax-loader">
+                <img src="~/content/Loader/ajax-loader.gif" class="img-responsive" />
+            </div>
+
         </section>
 
+        <br />
+        <br />
         <!-- RSVPs -->
-        <section id="RSVPpersonal">
+        <section id="AfrikaansRSVPpersonal">
             <div class="container">
                 <div class="row wow fadeInUp">
                     <div class="col-md-12 text-center rsvpHeightScroll ">
 
                         <h3>
-                            Direkte RSVP
+                            Kontak ons gerus
                         </h3>
 
                     </div>
@@ -916,10 +861,6 @@
                         </p>
 
 
-
-
-                        <div class="clearfix">
-                        </div>
                     </div>
 
                 </div>
@@ -957,12 +898,12 @@
     }, 1000);
 
     function RSVP(Lang) {
-        var name = document.getElementById( Lang + 'RSVPname').value;
+        var name = document.getElementById(Lang + 'RSVPname').value;
         var surname = document.getElementById(Lang + 'RSVPsurname').value;
         var email = document.getElementById(Lang + 'RSVPemail').value;
-        var mobile = document.getElementById(Lang+ 'RSVPmobile').value;
+        var mobile = document.getElementById(Lang + 'RSVPmobile').value;
         var isattending = document.getElementById(Lang + 'RSVPisattending').checked;
-     
+
         var data = new FormData();
         data.append('name', name);
         data.append('surname', surname);
@@ -974,7 +915,6 @@
             lang = 'English';
         else
             lang = 'Afrikaans';
-
         $.ajax(
             {
                 url: 'Home/RSVP/' + lang,
@@ -982,30 +922,34 @@
                 processData: false,
                 contentType: false,
                 type: "POST",
+                beforeSend: function () {
+                    $('#'+ Lang +'ajax-loader').css("visibility", "visible");
+                },
                 success: function (result) {
+                    console.log(result);
                     if (result.success) {
-                        $('#' + Lang +'RSVPnotifications').show();
-                        $('#' + Lang +'RSVPnotifications').html('<div  class="alert alert-success" role="alert"> RSVP successful.</div>');
-                        $('#' + Lang +'RSVPpanel').hide('slow');
-
+                        document.getElementById(Lang + 'RSVPform').reset();
+                        $('#' + Lang + 'RSVPnotifications').show();
+                        $('#' + Lang + 'RSVPnotifications').html('<div  class="alert alert-success" role="alert"> RSVP successful.</div>');
+                        setTimeout(function () {
+                            $('#' + Lang + 'RSVPnotifications').fadeOut();
+                        }, 5000);
                     }
                     else {
-                        var newBody = $('#' + Lang + 'RSVPform', result);
-                        console.log(newBody);
-                        $('#' + Lang +'RSVPform').replaceWith(newBody);
+                        var newBody = $('#' + Lang + 'RSVPform', result);;
+                        $('#' + Lang + 'RSVPform').replaceWith(newBody);
                     }
                 },
                 error: function (result) {
-                    $('#' + Lang +'RSVPnotifications').html(' Looks like something went wrong! Please try again later.');
+                    $('#' + Lang + 'RSVPnotifications').html(' Looks like something went wrong! Please try again later.');
 
+                },
+                complete: function () {
+                    $('#' + Lang + 'ajax-loader').css("visibility", "hidden");
                 }
             }
         );
     }
-
-
-
-
 
 
 </script>

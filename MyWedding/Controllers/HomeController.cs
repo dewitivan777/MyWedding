@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Email.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using MyWedding.Models;
 using MyWedding.Repository;
@@ -20,16 +21,19 @@ namespace MyWedding.Controllers
     {
         private IEmailService _emailService;
         private readonly IGuestRepository<Guest> _guestRepository;
+        private readonly IHostingEnvironment _env;
 
-        public HomeController(IEmailService emailService, IGuestRepository<Guest> guestRepository)
+        public HomeController(IEmailService emailService, IGuestRepository<Guest> guestRepository, IHostingEnvironment env)
         {
             _emailService = emailService;
             _guestRepository = guestRepository;
+            _env = env;
         }
 
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewBag.language = "Afrikaans";
             return View();
         }
 
@@ -49,6 +53,7 @@ namespace MyWedding.Controllers
             ViewBag.language = language;
             if (ModelState.IsValid)
             {
+                try { 
                 var entity = await _guestRepository.GetByNameAsync(model.Name,model.Surname);
 
                 if(entity != null)
@@ -60,15 +65,21 @@ namespace MyWedding.Controllers
                 {
                     _guestRepository.Add(model);
                 }
+
+                }
+                catch
+                {
+                    ModelState.AddModelError(string.Empty, "Could not connect to database");
+                }
                 List<string> email = new List<string>();
                 string attending = "";
                 if (model.IsAttending == true)
-                    attending = "attening";
+                    attending = "attending";
                 else
-                    attending = "not attening";
+                    attending = "not attending";
 
                //To Me
-                email.Add("dewit.ivan777@gmail.com");
+                email.Add("dewit.troue@gmail.com");
                 string subject = "Mone & Ivan's wedding";
                 string stringformat = @"The following person is {0} your wedding:
 
@@ -85,8 +96,7 @@ Personal message:{4}";
                  subject = "Mone & Ivan's wedding RSVP";
                 stringformat = @"You're {0} the wedding";
                 message = string.Format(stringformat, attending);
-                await _emailService.SendEmail(email, subject, message, "C:/Users/IvanDeWit/Desktop/Test/Test.docx");
-
+                await _emailService.SendEmail(email, subject, message, _env.WebRootPath +"/content/images/IMG_6228.jpg");
                 return Json(new { success = true }); 
             }
             else

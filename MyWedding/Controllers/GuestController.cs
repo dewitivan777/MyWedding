@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Email.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyWedding.Models;
@@ -143,7 +144,7 @@ namespace MyWedding.Controllers
 
         [HttpPost]
         [Route("~/Guest/email")]
-        public async Task<IActionResult> email(string emailID, string subject, string message)
+        public async Task<IActionResult> email(string emailID, string subject, string message, FormFile attach)
         {
 
             var result = await _guestRepository.GetEmail(c => c.id == emailID);
@@ -155,7 +156,7 @@ namespace MyWedding.Controllers
 
         [HttpPost]
         [Route("~/Guest/emailAll")]
-        public async Task<IActionResult> emailAll(string emailID, string subject, string message)
+        public async Task<IActionResult> emailAll(string emailID, string subject, string message, FormFile attach)
         {
 
             var result = await _guestRepository.GetEmail();

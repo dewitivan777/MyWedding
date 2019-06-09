@@ -9,32 +9,40 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Email.Services;
+
 using Microsoft.EntityFrameworkCore;
 using TestProject;
 using MyWedding.Repository;
+using Microsoft.Extensions.Configuration;
 
 namespace MyWedding
 {
     public class Startup
     {
+        public static IConfiguration _configuration { get; private set; }
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+      
+
             services.AddMvc();
             services.AddTransient<IEmailService, EmailService>();
 
             services.AddDbContext<Identitydbcontext>(options =>
-     options.UseSqlite("Data Source=users.sqlite",
-         optionsBuilder => optionsBuilder.MigrationsAssembly("MyWedding")));
+               options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<Identitydbcontext>()
                 .AddDefaultTokenProviders();
 
+
             services.AddDbContext<AppDbContext>(options =>
-              options.UseSqlite("Data Source=guests.sqlite",
-               optionsBuilder => optionsBuilder.MigrationsAssembly("MyWedding")));
+            options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped(typeof(IGuestRepository<>), typeof(GuestRepository<>));
 
@@ -53,6 +61,7 @@ namespace MyWedding
 
         }
 
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -63,7 +72,7 @@ namespace MyWedding
        
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseAuthentication();
+            app.UseAuthentication();  
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
