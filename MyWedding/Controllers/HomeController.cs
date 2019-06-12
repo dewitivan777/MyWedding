@@ -15,7 +15,7 @@ using MyWedding.Repository;
 
 namespace MyWedding.Controllers
 {
-    
+
 
     public class HomeController : Controller
     {
@@ -53,19 +53,19 @@ namespace MyWedding.Controllers
             ViewBag.language = language;
             if (ModelState.IsValid)
             {
-                try { 
-                var entity = await _guestRepository.GetByNameAsync(model.Name,model.Surname);
-
-                if(entity != null)
+                try
                 {
-                    var Updateentity = await _guestRepository.GetByIdAsync(entity.id);
-                    _guestRepository.Update(Updateentity);
-                }
-                else
-                {
-                    _guestRepository.Add(model);
-                }
+                    var entity = await _guestRepository.GetByNameAsync(model.Name, model.Surname);
 
+                    if (entity != null)
+                    {
+                        var Updateentity = await _guestRepository.GetByIdAsync(entity.id);
+                        _guestRepository.Update(Updateentity);
+                    }
+                    else
+                    {
+                        _guestRepository.Add(model);
+                    }
                 }
                 catch
                 {
@@ -73,34 +73,92 @@ namespace MyWedding.Controllers
                 }
                 List<string> email = new List<string>();
                 string attending = "";
+                string subject = string.Empty;
+                string stringformat = string.Empty;
+                String message = string.Empty;
                 if (model.IsAttending == true)
+                {
                     attending = "attending";
-                else
-                    attending = "not attending";
+                    //To Guest
+                    email.Clear();
+                    email.Add(model.Email);
+                    if (language == "English")
+                    {
+                        subject = "Mone & Ivan's wedding RSVP";
+                        stringformat = @"Dear {0}
 
-               //To Me
+You have confirmed that you will be attending our wedding, we are excited to share our special day with you.
+
+Kind regards,
+Ivan & Moné";
+                        message = string.Format(stringformat, model.Name);
+                        await _emailService.SendEmail(email, subject, message);
+                    }
+                    else
+                    {
+                        subject = "Mone & Ivan's wedding RSVP";
+                        stringformat = @"Beste {0}
+
+Jy het bevestig dat jy ons troue gaan bywoon. Ons is opgewonde om die spesiale dag met jou te deel.
+
+Vriendelike groete,
+Ivan & Moné";
+                        message = string.Format(stringformat, model.Name);
+                        await _emailService.SendEmail(email, subject, message);
+                    }
+
+                }
+                else
+                {
+                    attending = "not attending";
+                    //To Guest
+                    email.Clear();
+                    email.Add(model.Email);
+                    if (language == "English")
+                    {
+                        subject = "Mone & Ivan's wedding RSVP";
+                        stringformat = @"Dear {0}
+
+You have confirmed that you won't be able to attend our wedding, we're sorry we won't be seeing you.
+
+Kind regards,
+Ivan & Moné";
+                        message = string.Format(stringformat, model.Name);
+                        await _emailService.SendEmail(email, subject, message);
+                    }
+                    else
+                    {
+                        subject = "Mone & Ivan's wedding RSVP";
+                        stringformat = @"Beste {0}
+
+Jy het bevestig dat jy nie ons troue sal kan bywoon nie. Ons is jammer dat jy die dag gaan mis.
+
+Vriendelike groete,
+Ivan & Moné";
+                        message = string.Format(stringformat, model.Name);
+                        await _emailService.SendEmail(email, subject, message);
+                    }
+                }
+
+
+                //To Me
                 email.Add("dewit.troue@gmail.com");
-                string subject = "Mone & Ivan's wedding";
-                string stringformat = @"The following person is {0} your wedding:
+                subject = "Mone & Ivan's wedding";
+                stringformat = @"The following person is {0} your wedding:
+
 
 Name & Surname: {1}
 Email:{2}
 Contact number:{3}
 Personal message:{4}";
-                String message = string.Format(stringformat,attending,model.Name +" "+model.Surname,model.Email,model.mobile,model.Message);
+                message = string.Format(stringformat, attending, model.Name + " " + model.Surname, model.Email, model.mobile, model.Message);
                 await _emailService.SendEmail(email, subject, message);
 
-                //To Guest
-                email.Clear();
-                email.Add(model.Email);
-                 subject = "Mone & Ivan's wedding RSVP";
-                stringformat = @"You're {0} the wedding";
-                message = string.Format(stringformat, attending);
-                await _emailService.SendEmail(email, subject, message, _env.WebRootPath +"/content/images/IMG_6228.jpg");
-                return Json(new { success = true }); 
+
+                return Json(new { success = true });
             }
             else
-            return View("~/Views/Home/Index.cshtml",model);
+                return View("~/Views/Home/Index.cshtml", model);
 
         }
     }
